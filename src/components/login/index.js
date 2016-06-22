@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { Dimensions, Image, Keyboard, AlertIOS} from 'react-native';
+import { Dimensions, Image, Keyboard, AlertIOS, AsyncStorage} from 'react-native';
 
 import {Container, Content, InputGroup, Input, Button, Icon, View } from 'native-base';
 import {replaceRoute} from '../../actions/route';
@@ -69,6 +69,7 @@ class Login extends Component {
                 responseData.faild
             )
           }else{
+            AsyncStorage.setItem('user_token', responseData.token)
             this.props.replaceRoute(route);
           }
 
@@ -90,7 +91,7 @@ class Login extends Component {
                                     <Icon name="ios-person" />
                                     <Input placeholder="EMAIL"
                                       name = "email"
-                                      onChangeText={(text) => this.setState({email: text})}                                      
+                                      onChangeText={(text) => this.setState({email: text})}
                                     />
                                 </InputGroup>
                                 <InputGroup key={'a2'} style={{marginBottom: 10}}>

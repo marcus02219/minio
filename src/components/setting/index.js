@@ -17,20 +17,8 @@ class Setting extends Component {
         this.props.popRoute();
     }
     handleFormChange(formData){
-    /*
-    formData will contain all the values of the form,
-    in this example.
 
-    formData = {
-      first_name:"",
-      last_name:"",
-      gender: '',
-      birthday: Date,
-      has_accepted_conditions: bool
     }
-     */
-
-   }
    handleFormFocus(formData){
 
    }

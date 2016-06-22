@@ -18,6 +18,8 @@ import SideBar from './components/sideBar';
 import BlankPage from './components/blankPage/';
 import Signup from './components/signup/';
 import Setting from './components/setting/';
+import Gifted from './components/gifted/';
+
 export var globalNav = {};
 
 const searchResultRegexp = /^search\/(.*)$/;
@@ -69,12 +71,12 @@ class AppNavigator extends Component {
     }
 
     popRoute() {
-        this.props.popRoute();
+      this.props.popRoute();
     }
 
     openDrawer() {
       console.log('open')
-        this._drawer.open();
+      this._drawer.open();
     }
 
     closeDrawer() {
@@ -101,7 +103,7 @@ class AppNavigator extends Component {
                     configureScene={(route) => {
                         return Navigator.SceneConfigs.FloatFromRight;
                     }}
-                    initialRoute={{id: 'login'}}
+                    initialRoute={{id: 'home'}}
                     renderScene={this.renderScene}
                 />
             </Drawer>
@@ -120,6 +122,8 @@ class AppNavigator extends Component {
                 return <Signup navigator={navigator} />;
             case 'setting':
                 return <Setting navigator={navigator} />;
+            case 'gifted':
+                return <Gifted navigator={navigator} />;
             default :
                 return <Login navigator={navigator}  />;
         }
